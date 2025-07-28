@@ -85,3 +85,31 @@ func TestCalculateTotalZeroItem(t *testing.T) {
 		t.Errorf("Expected empty order total 0.0, got %f", order.Total())
 	}
 }
+
+func TestRemoveOneItem(t *testing.T) {
+	//TODO: implement
+}
+
+func TestRemoveAllItems(t *testing.T) {
+	//TODO: implement
+}
+
+func TestApply0Discount(t *testing.T) {
+	//TODO: implement
+}
+
+func TestApply100Discount(t *testing.T) {
+	//TODO: implement
+}
+
+func TestApply50Discount(t *testing.T) {
+	// TODO: implement
+}
+
+func TestCalculateDeliveryFee(t *testing.T) {
+	// TODO: implement
+}
+
+func TestCalculateDeliveryFeeFar(t *testing.T) {
+	// TODO: implement
+}
