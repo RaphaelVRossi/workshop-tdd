@@ -8,31 +8,42 @@ type Item struct {
 }
 
 type Order struct {
-	ID     string
-	Items  []Item
-	Total  float64
-	Status string
+	id     string
+	items  []Item
+	total  float64
+	status string
 }
 
-func NewOrder(id string) Order {
+func NewOrder(id string) *Order {
 	order := Order{
-		ID:     id,
-		Status: "Pending",
+		id:     id,
+		status: "Pending",
 	}
 
-	return order
+	return &order
+}
+
+func (o *Order) Total() float64 {
+	return o.total
+}
+
+func (o *Order) Id() string {
+	return o.id
+}
+
+func (o *Order) Status() string {
+	return o.status
 }
 
 func (o *Order) AddItem(item Item) {
-	o.Items = append(o.Items, item)
+	o.items = append(o.items, item)
 	o.CalculateTotal()
 }
 
-
 func (o *Order) CalculateTotal() {
 	total := 0.0
-	for _, item := range o.Items {
+	for _, item := range o.items {
 		total += item.Price * float64(item.Quantity)
 	}
-	o.Total = total
+	o.total = total
 }
