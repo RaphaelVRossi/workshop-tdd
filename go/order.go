@@ -14,17 +14,20 @@ type Order struct {
 	Status string
 }
 
-func NewOrder(id string, items []Item) Order {
+func NewOrder(id string) Order {
 	order := Order{
 		ID:     id,
-		Items:  items,
 		Status: "Pending",
 	}
 
-	order.CalculateTotal()
-
 	return order
 }
+
+func (o *Order) AddItem(item Item) {
+	o.Items = append(o.Items, item)
+	o.CalculateTotal()
+}
+
 
 func (o *Order) CalculateTotal() {
 	total := 0.0
